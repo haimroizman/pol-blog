@@ -1,0 +1,37 @@
+﻿@using POLBlog.HtmlHelpers
+@model POLBlog.Models.PostsListsViewModel
+           
+<script type="text/javascript">
+    function UpdateSize() {
+        var pSize = $('#DrpPageSize').val();
+        $.ajax(
+            {
+                type: "POST",
+                url: "@Url.Action("ChangePostPageSize")",
+                dataType: 'text',
+                data: { size: pSize },
+                success: function(result) {
+                    $('#stupedPaging').val(result);
+                }
+            });
+    }
+</script>
+
+@{
+    ViewBag.Title = "Posts/Articles";
+}
+<div id="stupedPaging">
+    @foreach (var p in Model.Posts)
+    {
+        Html.RenderPartial("PostItemSummary", p);
+    }
+</div>
+
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>
+
+<div style="float: left;text-align:left;margin-top: -15px; ">
+    <span>Page Size:</span>
+    @Html.DropDownList("DrpPageSize", Model.DrpPageSize, "Select", new { onchange = "UpdateSize()" })
+</div>

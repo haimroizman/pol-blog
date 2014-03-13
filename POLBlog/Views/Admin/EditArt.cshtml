@@ -1,0 +1,29 @@
+﻿@model POLBlog.Domain.Entities.Art
+
+@{
+    ViewBag.Title = "EditArt";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit @Model.ArtTitle</h2>
+
+@using (Html.BeginForm("EditArt", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.EditorForModel()
+
+    <div class="editor-label">Image</div>
+    <div class="editor-field">
+        @if(ViewData[Model.ArtID.ToString()]==null)
+        {
+            @:None
+        }else
+        {
+            <img width="150" height="150" alt="@Model.ArtTitle" src="@Url.Content((string)ViewData[Model.ArtID.ToString()])"/>
+        }
+        <p>@Html.ValidationMessage("uploadError")</p>
+        <div>Upload new image: <input type="file" name="Image" /></div>
+    </div>
+    
+    <input type="submit" value="Save"/>
+    @Html.ActionLink("Cancel and return to List", "ShowArts")
+}

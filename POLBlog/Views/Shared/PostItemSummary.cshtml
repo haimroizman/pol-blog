@@ -1,0 +1,21 @@
+﻿@model POLBlog.Models.PostViewModel
+
+<div class="item">
+    <h1 style="font: bold 2em Arial Narrow, Franklin Gothic Medium, Arial;">@Model.Name</h1>
+    @if(ViewData[Model.PostID.ToString()]!=null)
+    {
+        <div style="float:left;margin:-20px 20px 20px 5px;border: 2px solid #9a9aff">
+            <img width="125" height="95" src="@Url.Content((string)ViewData[Model.PostID.ToString()])"/>
+        </div>
+    }
+    
+    <p>@Html.DisplayFor(x => x.ArticleBody)</p>
+    @using(Html.BeginForm("DisplayFullArticle","Posts"))
+    {
+        @Html.HiddenFor(x=>x.PostID)
+        @Html.Hidden("returnUrl",Request.Url.PathAndQuery)
+        <div style="clear: both;margin-bottom: 50px;margin-top: -15px;position: relative;">
+            <input type="submit" value="READ" />
+        </div>
+    }
+</div>

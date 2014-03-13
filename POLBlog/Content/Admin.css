@@ -1,0 +1,61 @@
+﻿BODY, TD { font-family: Segoe UI, Verdana }
+H1 { padding: .5em; padding-top: 0; font-weight: bold;
+font-size: 1.5em; border-bottom: 2px solid gray; }
+DIV#content { padding: .9em; }
+TABLE.Grid TD, TABLE.Grid TH { border-bottom: 1px dotted gray; text-align:left; }
+TABLE.Grid { border-collapse: collapse; width:100%; }
+TABLE.Grid TH.NumericCol, Table.Grid TD.NumericCol {
+text-align: right; padding-right: 1em; }
+FORM {margin-bottom: 0px; }
+DIV.Message { background: gray; color:White; padding: .2em; margin-top:.25em; }
+.field-validation-error { color: red; display: block; }
+.field-validation-valid { display: none; }
+.input-validation-error { border: 1px solid red; background-color: #ffeeee; }
+.validation-summary-errors { font-weight: bold; color: red; }
+.validation-summary-valid { display: none; }
+.editor-field { margin-bottom: .8em; }
+.editor-label { font-weight: bold; }
+.editor-label:after { content: ":" }
+.text-box { width: 25em; }
+.multi-line { height: 23em;width: 56em; font-family: Segoe UI, Verdana; }
+
+
+.MenuLinks {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.MenuLinks a {
+    color: black;
+}
+
+DIV#header div.title {
+    font: bold 1em "Arial Narrow", "Franklin Gothic Medium", Arial;
+}
+
+DIV#header {
+     background-color:black; border-bottom: 2px solid #9a9aff; color: White;
+}
+
+div span.partTitle {
+     color: #9a9aff;
+     border: 1px solid #fff;
+    float: right;
+}
+
+DIV#header DIV.title {
+     font-size: 2em; padding: .6em;
+}
+
+div#navbar a {
+    font: bold 1.1em "Arial Narrow", "Franklin Gothic Medium", Arial;
+    display: inline;
+    text-decoration: none;
+    padding: .6em;
+}
+
+DIV#navbar A.selected { background-color: #9a9aff; color: White; }
+DIV#navbar A:hover { background-color: darkslateblue; }
+DIV#navbar A.selected:hover { background-color: #dca; }

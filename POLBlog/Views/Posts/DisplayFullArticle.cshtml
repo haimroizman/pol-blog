@@ -1,0 +1,11 @@
+﻿@model POLBlog.Models.PostFullArticleViewModel
+
+@{
+    ViewBag.Title = Model.Post.Category + "/" + Model.Post.Name;
+}
+
+
+@{
+    Html.RenderPartial("PostAritcleBody", Model);
+}
+

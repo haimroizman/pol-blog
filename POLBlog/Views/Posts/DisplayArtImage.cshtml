@@ -1,0 +1,12 @@
+﻿@model POLBlog.Models.ArtImageViewModel
+
+<div class="artFullItem">
+    <h5 style="font:bold 2em Arial Narrow, Franklin Gothic Medium, Arial;">@Model.Art.ArtTitle</h5>
+    <div style="border: 4px solid #effeef; display: inline-block; position: relative;">
+        <img alt="@Model.Art.ArtTitle" width="600px" height="600px" style="border-radius: 5px; display: inline-block;margin-top: -25px;" src="@Url.Content((string) ViewData[Model.Art.ArtID.ToString() + "Art"])"/>
+    </div>
+    <p style="text-align:right;margin-top: 39px;" >
+        <a href="@Model.ReturnUrl" style="color: white;"> << Back To Previous Page << </a>
+    </p>
+</div>
+

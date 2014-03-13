@@ -1,0 +1,10 @@
+﻿@model POLBlog.Models.PostFullArticleViewModel
+
+<div class="articleItem">
+    <h1>@Model.Post.Name</h1>
+    <p>@Model.Post.ArticleBody</p>
+</div>
+
+<p style="text-align: center" class="actionButtons">
+    <a href="@Model.ReturnUrl">Back To Previous Page</a>
+</p>

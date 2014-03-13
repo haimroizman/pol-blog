@@ -1,0 +1,16 @@
+﻿@using POLBlog.HtmlHelpers
+@model POLBlog.Models.ArtListsViewModel
+
+@{
+    ViewBag.Title = "Art/Images";
+}
+
+@foreach(var a in Model.Arts)
+{
+    Html.RenderPartial("ArtItemImage",a);
+}
+
+
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo,x=>Url.Action("ArtList",new{page=x}))
+</div>

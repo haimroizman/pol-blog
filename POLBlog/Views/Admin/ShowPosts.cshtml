@@ -1,0 +1,37 @@
+﻿@model IEnumerable<POLBlog.Domain.Entities.Post>
+
+@{
+    ViewBag.Title = "ShowPosts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ShowPosts</h2>
+
+<h1>All Posts</h1>
+
+<table class="Grid">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>CreationDate</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.PostID</td>
+            <td>@Html.ActionLink(item.Name, "Edit", new { item.PostID, category = "PostsAdmin" })</td>
+            <td>@item.CreationDate</td>
+            <td>
+                @using(Html.BeginForm("Delete","Admin"))
+                {
+                    @Html.Hidden("PostID",item.PostID)
+                    
+                    <input type="submit" value="Delete"/>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<p>@Html.ActionLink("Add a new Post","Create")</p>

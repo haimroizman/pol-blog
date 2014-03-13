@@ -1,0 +1,36 @@
+﻿@model IEnumerable<POLBlog.Domain.Entities.Art>
+
+@{
+    ViewBag.Title = "ShowArts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ShowArts</h2>
+
+<h1>All Arts</h1>
+
+<table class="Grid">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>CraetionDate</th>
+        <th>Actions</th>
+    </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.ArtID</td>
+            <td>@Html.ActionLink(item.ArtTitle, "EditArt", new { item.ArtID, category="ArtAdmin" })</td>
+            <td>@item.CreationDate</td>
+            <td>
+                @using(Html.BeginForm("DeleteArt","Admin"))
+                {
+                    @Html.Hidden("ArtID",item.ArtID)
+                    <input type="submit" value="Delete"/>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<p>@Html.ActionLink("Add a new Art Image","CreateArt")</p>

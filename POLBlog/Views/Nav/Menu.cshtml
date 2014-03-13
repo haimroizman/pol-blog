@@ -1,0 +1,25 @@
+﻿@using System.Configuration
+@model IEnumerable<string>
+
+@{
+    Layout = null;
+}
+
+<div style="margin-left: 40%;">
+@foreach (string link in Model)
+{
+    <div class="MenuLinks">
+        @Html.RouteLink(link, new
+                                    {
+                                        Controller =ConfigurationManager.AppSettings[link].Split(':')[0],
+                                        action = ConfigurationManager.AppSettings[link].Split(':')[1],
+                                        category = link
+                                    },
+                                    
+                          new
+                              {
+                                  @class = link == ViewBag.SelectedIssue ? "selected" : null
+                              })
+    </div>
+}
+</div>

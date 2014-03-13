@@ -1,0 +1,14 @@
+﻿@model POLBlog.Domain.Entities.Art
+
+<div class="artItem">
+    <a style="text-decoration: none;" href="@Url.Action("DisplayArtImage", "Posts", new { artId = @Model.ArtID, returnUrl = Request.Url.PathAndQuery })">
+        <h5 style="font:bold 2em Arial Narrow, Franklin Gothic Medium, Arial;display:inline;">@Model.ArtTitle</h5>
+    </a>
+    @if (ViewData[Model.ArtID.ToString() + "Art"] != null)
+    {
+        <div style="border: 4px solid #effeef; display: inline-block; position: relative;">
+            <img alt="@Model.ArtTitle" width="200px" height="200" style="border-radius: 5px; display: inline-block;" src="@Url.Content((string) ViewData[Model.ArtID.ToString() + "Art"])"/>
+        </div>
+    }
+</div>
+
